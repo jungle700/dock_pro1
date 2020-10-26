@@ -1,0 +1,20 @@
+version: "3"
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prom1
+    ports:
+      - 9090:9090
+    networks:
+      -  myconnect
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana1
+    ports:
+      - 3000:3000
+    networks:
+      - myconnect
+
+networks:
+       myconnect: {}
